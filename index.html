@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic-Game</title>
+</head>
+<body>
+    <h1>The Psychic Game!</h1>
+
+    <p>Guess What Letter I'm Thinking Of</p>
+    <p id="wins">Wins:</p>
+    <p id="losses">Losses:</p>
+    <p id="guessLeft">Guesses Left:</p>
+    <p id="guessFar">Guesses So Far:</p>
+
+    
+
+    <script>
+        //define variables, arrays//
+        var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        //var userGuess//
+        var wins = 0;
+        var losses = 0;
+        var guessLeft = 9;
+        var guessFar = 0;
+
+        //create counters//
+        function updateWins() {
+        document.querySelector("#wins").innerHTML = "Wins: " + wins;
+        }
+        function updateLosses() {
+        document.querySelector("#losses").innerHTML = "Losses: " + losses;
+        }
+        function updateguessLeft() {
+        document.querySelector("#guessLeft").innerHTML = "Guesses Left: " + guessLeft;
+        }
+        function updateuserGuess() {
+        document.querySelector("#guessFar").innerHTML = "Guesses so far: " + userGuess + ", ";
+        }
+
+        //functions//
+        document.onkeyup = function(event) {
+        var userGuess = event.key.toLowerCase();
+        //computer random generator//
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        if (userGuess === computerGuess) {
+            wins++;
+            updateWins();
+            return;
+        }
+        //need to find way to list out wrong answers//
+        else {
+            guessLeft--;
+            updateguessLeft();
+            updateuserGuess();
+        }
+        //need to tell the game to STOP, RESET, and add 1 LOSS when the guessLeft = 0//
+        if (guessLeft === 0){
+            losses++;
+            updateLosses();
+            return; //does this return item reset the game?//
+        } 
+
+        
+        
+        };
+
+    </script>
+</body>
+</html>
