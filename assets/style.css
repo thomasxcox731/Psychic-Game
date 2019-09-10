@@ -1,0 +1,13 @@
+body {
+    background: rgb(34, 34, 161);
+    color: rgb(190, 180, 180);
+    padding: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container {
+    border: 5px solid; 
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
