@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
     <title>Psychic-Game</title>
 </head>
 
@@ -14,75 +15,12 @@
     <p>Guess What Letter I'm Thinking Of:</p>
     <p id="wins">Wins:</p>
     <p id="losses">Losses:</p>
-    <p id="guessLeft">Guesses Left:</p>
-    <p id="guessFar">Guesses So Far:</p>
+    <p id="guessesLeft">Guesses Left:</p>
+    <p id="userGuesses">Guesses So Far:</p>
 
 
 
-    <script>
-        //define variables, arrays//
-        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-        var wins = 0;
-        var losses = 0;
-        var guessLeft = 9;
-        var guessFar = [];
-        var userGuess;
-
-        //create counters//
-        function updateWins() {
-            document.querySelector("#wins").innerHTML = "Wins: " + wins;
-        }
-        function updateLosses() {
-            document.querySelector("#losses").innerHTML = "Losses: " + losses;
-        }
-        function updateguessLeft() {
-            document.querySelector("#guessLeft").innerHTML = "Guesses Left: " + guessLeft;
-        }
-
-        function displayGuesses() {
-            for (i = 0; i < 9; i++) {
-                console.log(displayGuesses[i]);
-            }
-            // loop through guessFar array;
-            // for each guess .push() onto guessFar array
-        }
-
-        function updateuserGuess() {
-            document.querySelector("#guessFar").innerHTML = "Guesses so far: " + userGuess + ", ";
-        }
-
-        function resetGame() {
-            guessLeft = 9;
-            guessFar = [];
-
-        }
-        //functions//
-        document.onkeyup = function (event) {
-            userGuess = event.key.toLowerCase();
-            console.log(userGuess)
-            //computer random generator//
-            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            console.log(computerGuess)
-            if (userGuess === computerGuess) {
-                wins++;
-                updateWins();
-                resetGame();
-            }
-            //need to find way to list out wrong answers//
-            else {
-                guessLeft--;
-                updateguessLeft();
-                updateuserGuess();
-            }
-            //need to tell the game to STOP, RESET, and add 1 LOSS when the guessLeft = 0//
-            if (guessLeft <= 0) {
-                losses++;
-                updateLosses();
-                resetGame();
-            }
-        };
-
-    </script>
+    <script src="assets/javascript.js"></script>
 </body>
 
 </html>
